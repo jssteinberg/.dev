@@ -6,10 +6,15 @@ source $VIMRUNTIME/defaults.vim
 
 " ## Options
 
+set list listchars=tab:\|\ 
 set number relativenumber " Don't count lines to [count]j/k
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete " Set omnifunc to complete syntax
 
 " ## Keymaps
+
+" Set space as leader key
+nn <space> <nop>
+let mapleader=' '
 
 " Fix Y to yank from cursor to end of line, not the default of yank line (use
 " yy for that).
@@ -43,13 +48,13 @@ silent! packadd vim-packager
 
 if exists('packager')
 	call packager#setup(function('s:packager_init'))
-endif
 
-"Load plugins only for specific filetype
-"Note that this should not be done for plugins that handle their loading using ftplugin file.
-"More info in :help pack-add
-augroup packager_filetype
-	autocmd!
-	" autocmd FileType javascript packadd vim-js-file-import
-	" autocmd FileType go packadd vim-go
-augroup END
+	"Load plugins only for specific filetype
+	"Note that this should not be done for plugins that handle their loading using ftplugin file.
+	"More info in :help pack-add
+	augroup packager_filetype
+		autocmd!
+		" autocmd FileType javascript packadd vim-js-file-import
+		" autocmd FileType go packadd vim-go
+	augroup END
+endif
