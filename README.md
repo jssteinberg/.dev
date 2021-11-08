@@ -4,8 +4,10 @@ Uses git to track dot files for dev, with no symlinks. Uses a bare Git repo. Set
 
 *Requires fish shell.*
 
+Cloning:
+
 ```fish
-git clone --bare <repo-url> $HOME/.dev.git
+git clone --bare git@github.com:jssteinberg/.dev.git $HOME/.dev.git
 alias dev 'git --git-dir=$HOME/.dev.git/ --work-tree=$HOME'
 funcsave dev
 dev checkout
@@ -13,6 +15,14 @@ dev config --local status.showUntrackedFiles no
 ```
 
 *You must perhaps remove some files before checkout.*
+
+Usage:
+
+```fish
+dev status
+dev add .file-in-home-folder
+dev commit -m "Updated dev files"
+```
 
 ## How it's initially done
 
