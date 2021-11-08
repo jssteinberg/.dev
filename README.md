@@ -1,6 +1,6 @@
 # dev files
 
-Uses git to track dot files for dev, with no symlinks. Uses a bare Git repo. Setting work-tree to `$HOME`. Not showing untracked files.
+Uses git to track (L)unix dot files for dev, with no symlinks. Uses a bare Git repo. Setting work-tree to `$HOME`. Not showing untracked files.
 
 *Requires fish shell.*
 
