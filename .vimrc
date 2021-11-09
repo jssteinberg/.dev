@@ -1,14 +1,15 @@
 " # Vimrc Boilerplate Version >= 8
 
-" Load Vim v. 8 default config
+" Load Vim v. 8 better defaults
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 " ## Options
 
-set list listchars=tab:\|\ 
+set list listchars=tab:\-\  " Show tabs if used
 set number relativenumber " Don't count lines to [count]j/k
 set omnifunc=syntaxcomplete#Complete " Set omnifunc to complete syntax
+"set hlsearch " Higlight search (hurts your eyes with default colors)
 
 " ## Keymaps
 
@@ -29,6 +30,8 @@ nn Y yg_
 
 function! s:packager_init(packager) abort
 	call a:packager.add('kristijanhusak/vim-packager', { 'type': 'opt' })
+	call a:packager.add('tyru/open-browser.vim')
+	call a:packager.add('tpope/vim-surround')
 	call a:packager.add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})
 	call a:packager.add('junegunn/fzf.vim')
 	" call a:packager.add('Shougo/deoplete.nvim')
