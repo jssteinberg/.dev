@@ -4,15 +4,13 @@ Uses Git to track linux/unix dot files for dev, with no symlinks. Uses a bare Gi
 
 *(Code blocks are fish shell.)*
 
-## Vim 8
-
-A simplistic and minimal vimrc boilerplate.
+## Vim 8: simple vimrc
 
 Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate`.
 
 - Package management requires https://github.com/kristijanhusak/vim-packager
 - Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
-	Includes MUcomplete. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
+	Uses MUcomplete for autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 
 ## Git use
 

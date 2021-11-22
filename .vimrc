@@ -9,17 +9,11 @@ source $VIMRUNTIME/defaults.vim
 set clipboard=unnamed " Sync with system clioboard
 set hidden " Unsaved files can be 'hidden'
 "set hlsearch " Higlight search (hurts your eyes with default colors)
-set ignorecase " For search and wildmenu
+set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set list listchars=tab:\-\  " Show tabs if used
-set number relativenumber " To see [count]j/k
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
-set rulerformat=%y%m " [filetype][modified]
+set rulerformat=%y%m\ %l/%L " [filetype][modified] line/lines
 set wildmode=lastused:full " lastused :buffer
-
-" Vim Fuzzy Find Files
-" (http://www.akhatib.com/fuzzy-find-files-in-vim-without-a-plugin)
-set path=$PWD/**        " Enable fuzzy finding in the vim command line
-set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp
 
 
 " Keymaps vanilla
@@ -28,17 +22,20 @@ set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/di
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
-
-" Fix Y to yank as C or D works
+" Y works like C or D
 nnoremap Y yg_
-
-" For some non US keyboards
+" Follow definition in help (easier for some non US keyboards)
 nnoremap <leader>9 <c-]>
-
+" Search mappings (for their defaults, use cl and cc)
 nnoremap s /
 nnoremap S ?
+" Incrementally go back in command history
 cnoremap <c-p> <up>
-nnoremap <leader><tab> :buffer 
+" Buffer switcher
+nnoremap <tab> :buffer 
+" Alternate buffer
+nnoremap <leader><tab> :buffer#<cr>:file!<cr>
+" Write/save file
 nnoremap <leader>w :w<cr>
 
 
@@ -74,6 +71,7 @@ function! PackagerInit() abort
 	call packager#init()
 	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
 	call packager#add('tpope/vim-surround')
+	call packager#add('tpope/vim-fugitive')
 	call packager#add('sheerun/vim-polyglot')
 	call packager#add('editorconfig/editorconfig-vim')
 
