@@ -37,7 +37,8 @@ Add and update:
 
 ```fish
 dev status
-dev add file && dev commit -m "Updated dev files"
+dev add file1 file2
+dev commit -m "Updated dev files"
 dev push
 ```
 
