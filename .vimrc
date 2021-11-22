@@ -59,6 +59,10 @@ set shortmess+=c " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
 
+" Linting
+nnoremap gd :ALEGoToDefinition<cr>
+nnoremap <cr> :ALEHover<cr>
+
 " Commands for packages
 command! -nargs=* -bar PackagerInstall call PackagerInit() | call packager#install(<args>)
 command! -nargs=* -bar PackagerUpdate call PackagerInit() | call packager#update(<args>)
@@ -81,4 +85,7 @@ function! PackagerInit() abort
 
 	" Autocompletion
 	call packager#add('lifepillar/vim-mucomplete')
+
+	" Linting
+	call packager#add('dense-analysis/ale')
 endfunction
